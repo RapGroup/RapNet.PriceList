@@ -1,0 +1,34 @@
+{
+    "name": "rapnet/price_list",
+    "description": "RapNet Price List SDK",
+    "autoload": {
+        "psr-4": {
+            "Rapnet\\RapnetPriceList\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2.5",
+        "guzzlehttp/guzzle": "^7.3",
+        "vlucas/phpdotenv": "^5.4.0",
+        "caseyamcl/guzzle_retry_middleware": "^2.8"
+    },
+    "scripts": {        
+        "post-update-cmd": [
+            "@build-prod"
+        ],
+        "post-install-cmd": [
+            "@build-prod"
+        ],
+        "build-dev": [
+          "php -r \"copy('.env.local', '.env');\""  
+        ],
+        "build-stage": [
+          "php -r \"copy('.env.stage', '.env');\""  
+        ],
+        "build-prod": [
+          "php -r \"copy('.env.prod', '.env');\""  
+        ]
+    }
+}
